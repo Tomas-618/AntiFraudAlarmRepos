@@ -5,8 +5,9 @@ public class Siren : MonoBehaviour
 {
     [SerializeField, Min(0)] private float _deltaChanging;
 
+    [SerializeField] private ChineseHouse _house;
+
     private AudioSource _audioSource;
-    private bool _isEnemyPenetrating;
 
     private void Reset() =>
         _deltaChanging = 2;
@@ -17,21 +18,9 @@ public class Siren : MonoBehaviour
     private void Update() =>
         ChangeVolume();
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Enemy>())
-            _isEnemyPenetrating = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<Enemy>())
-            _isEnemyPenetrating = false;
-    }
-
     private void ChangeVolume()
     {
-        int desiredVolume = System.Convert.ToInt32(_isEnemyPenetrating);
+        int desiredVolume = System.Convert.ToInt32(_house.IsEnemyPenetrating);
 
         _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, desiredVolume, _deltaChanging * Time.deltaTime);
     }
