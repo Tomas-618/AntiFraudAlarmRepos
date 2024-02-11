@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deltaChanging: 2
-  _house: {fileID: 0}
+  _house: {fileID: 31510492}
 --- !u!82 &312935226
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1303,8 +1303,8 @@ GameObject:
   - component: {fileID: 2061345172}
   - component: {fileID: 2061345171}
   - component: {fileID: 2061345175}
-  - component: {fileID: 2061345174}
   - component: {fileID: 2061345176}
+  - component: {fileID: 2061345174}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
